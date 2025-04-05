@@ -6,44 +6,57 @@
 package edu.unisabana.dyas.samples.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Date;
 
-public class Cliente implements Serializable{
-    
+/**
+ *
+ * @author cesarvefe
+ */
+public class Item implements Serializable{
+    private TipoItem tipo;
+    private int id;
     private String nombre;
-    private long documento;
-    private String telefono;
-    private String direccion;
-    private String email;
-    private boolean vetado;
-    private ArrayList<ItemRentado> rentados; 
+    private String descripcion;
+    private Date fechaLanzamiento;
+    private long tarifaxDia;
+    private String formatoRenta;
+    private String genero;
 
-    public Cliente() {
-    }
-
-    public Cliente(String nombre, long documento, String telefono, String direccion, String email, boolean vetado, ArrayList<ItemRentado> rentados) {   
+    public Item(TipoItem tipo, int id, String nombre, String descripcion, Date fechaLanzamiento, long tarifaxDia, String formatoRenta, String genero) {
+        this.tipo = tipo;
+        this.id = id;
         this.nombre = nombre;
-        this.documento = documento;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.email = email;
-        this.vetado = vetado;
-        this.rentados = rentados;
+        this.descripcion = descripcion;
+        this.fechaLanzamiento = fechaLanzamiento;
+        this.tarifaxDia = tarifaxDia;
+        this.formatoRenta = formatoRenta;
+        this.genero = genero;
     }
 
-  
-    public Cliente(String nombre, long documento, String telefono, String direccion, String email) {
-        this.nombre = nombre;
-        this.documento = documento;
-        this.telefono = telefono;
-        this.direccion = direccion;
-        this.email = email;
-        this.vetado = false;
-        this.rentados = new ArrayList<>();
+    public Item() {
     }
 
-           
+    
+    
+    
+    public TipoItem getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoItem tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
     public String getNombre() {
         return nombre;
     }
@@ -52,60 +65,48 @@ public class Cliente implements Serializable{
         this.nombre = nombre;
     }
 
-    public long getDocumento() {
-        return documento;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDocumento(long documento) {
-        this.documento = documento;
+    public void setDescrpcion(String descrpcion) {
+        this.descripcion = descrpcion;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public Date getFechaLanzamiento() {
+        return fechaLanzamiento;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setFechaLanzamiento(Date fechaLanzamiento) {
+        this.fechaLanzamiento = fechaLanzamiento;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public long getTarifaxDia() {
+        return tarifaxDia;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setTarifaxDia(long tarifaxDia) {
+        this.tarifaxDia = tarifaxDia;
     }
 
-    public String getEmail() {
-        return email;
+    public String getFormatoRenta() {
+        return formatoRenta;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFormatoRenta(String formatoRenta) {
+        this.formatoRenta = formatoRenta;
     }
 
-    public boolean isVetado() {
-        return vetado;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setVetado(boolean betado) {
-        this.vetado = betado;
-    }
-
-    public ArrayList<ItemRentado> getRentados() {
-        return rentados;
-    }
-
-    public void setRentados(ArrayList<ItemRentado> Rentados) {
-        this.rentados = Rentados;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", documento=" + documento + ", rentados=\n\t" + rentados + '}';
+        return "Item{" + "tipo=" + tipo + ", id=" + id + ", nombre=" + nombre + ", tarifaxDia=" + tarifaxDia + '}';
     }
-
-   
-    
-    
 }
